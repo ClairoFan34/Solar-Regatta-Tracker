@@ -1,10 +1,18 @@
-from flask import Flask
+from flask import Flask, render_template
 
 app = Flask(__name__)
 
+tasks = [
+    {"title": "Wire battery to motor controller", "owner": "Ana", "subteam": "Electrical", "due": "2026-10-30", "status": "in progress"},
+    {"title": "Seal pontoon seams", "owner": "Luis", "subteam": "Pontoon", "due": "2026-11-05", "status": "to do"},
+    {"title": "Test hydrofoil angle", "owner": "Sofia", "subteam": "Hydrofoil", "due": "2026-10-25", "status": "to do"},
+    {"title": "Mount steering cable", "owner": "Diego", "subteam": "Steering", "due": "2026-11-01", "status": "done"},
+    {"title": "Finalize hull paint design", "owner": "Maya", "subteam": "Design", "due": "2026-11-08", "status": "in progress"},
+]
+
 @app.route("/")
 def home():
-    return "Welcome team!"
+    return render_template("index.html", tasks = tasks)
 
 @app.route("/about")
 def info():

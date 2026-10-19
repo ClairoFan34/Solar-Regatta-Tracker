@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Solar Regatta Tracker</title>
+</head>
+<body>
+    <h1>Solar Regatta Team Tracker</h1>
+    <ul>
+        {% for tasks in tasks %}
+            <li> {{tasks.title}} - {{tasks.owner}} | Due: {{tasks.due}} </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
