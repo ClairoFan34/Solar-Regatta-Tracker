@@ -5,10 +5,16 @@
 </head>
 <body>
     <h1>Solar Regatta Team Tracker</h1>
+    <p>Current Task: </p>
+        {% for subteam in subteams %}
+    <h3>{{ subteam }}</h3>
     <ul>
-        {% for tasks in tasks %}
-            <li> {{tasks.title}} - {{tasks.owner}} | Due: {{tasks.due}} </li>
+        {% for task in tasks %}
+            {% if task.subteam == subteam %}
+                <li>{{ task.title }} — {{ task.owner }} — due {{ task.due }}</li>
+            {% endif %}
         {% endfor %}
     </ul>
+{% endfor %}
 </body>
 </html>
